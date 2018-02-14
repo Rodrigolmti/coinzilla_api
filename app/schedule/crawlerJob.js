@@ -3,5 +3,5 @@ var crawler = require('../crawler/whatToMine.js');
 
 schedule.scheduleJob('*/15 * * * *', function () {
     console.log("Atualizando dados");
-    crawler.Init();
+    // crawler.Init();
 })
