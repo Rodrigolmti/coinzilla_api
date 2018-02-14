@@ -35,10 +35,14 @@ module.exports = function (app) {
                         response.data.exchange = createCoin(balances.lending);
                     }
 
-                    res.status(201).send({ response });
+                    response.success = true;
+                    res.status(201).send({ 
+                        success: response.success,
+                        data: response.data
+                     });
 
                 } else {
-                    response.success = false; response.message = error
+                    response.success = false; response.message = error;
                     res.status(400).send(response);
                 }
             });
