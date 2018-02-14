@@ -14,9 +14,9 @@ module.exports = function (app) {
                 success: '',
                 message: '',
                 data: {
-                    exchange: '',
-                    margin: '',
-                    lending: ''
+                    exchange: new Array(),
+                    margin: new Array(),
+                    lending: new Array()
                 }
             }
 
