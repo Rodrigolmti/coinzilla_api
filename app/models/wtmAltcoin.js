@@ -38,4 +38,4 @@ var schema = mongoose.Schema({
 	}
 });
 
-mongoose.model('CoinWZ', schema);
+mongoose.model('WtmAltcoin', schema);

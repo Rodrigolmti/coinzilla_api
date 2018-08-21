@@ -4,4 +4,7 @@ module.exports = function (app) {
 
 	app.route('/api/v1/getToken')
 		.get(apiAuthentication.giveToken);
+
+	app.route('/api/v2/getToken')
+		.get(apiAuthentication.giveToken);
 };

@@ -2,14 +2,15 @@ var request = require('request');
 var cheerio = require('cheerio');
 var mongoose = require('mongoose');
 
-var urlCoinWarz = "https://www.coinwarz.com/cryptocurrency";
+const urlAltcoin = "https://www.coinwarz.com/cryptocurrency";
 
-var getCoinWarZ = function () {
+function getAltcoin() {
 
-    var modelCoinWZ = mongoose.model('CoinWZ');
+    console.log("Fetching altcoins");
+    var modelAltcoin = mongoose.model('WtmAltcoin');
     const BTC_COIN = "Bitcoin (BTC)";
 
-    request(urlCoinWarz, function (error, response, body) {
+    request(urlAltcoin, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var $ = cheerio.load(body, {
                 ignoreWhitespace: true,
@@ -58,19 +59,17 @@ var getCoinWarZ = function () {
                         updateDate: new Date()
                     };
                 }
-                
+
                 if (metadata) {
-                    modelCoinWZ.remove({})
-                        .then(function(item) {
-                            modelCoinWZ.create(metadata)
-                                .then(function(item) { },
-                                function(error) {
+                    modelAltcoin.remove({}).then(function (item) {
+                        modelAltcoin.create(metadata)
+                            .then(function (item) { },
+                                function (error) {
                                     console.log(error);
                                 });
-                        },
-                        function(error) {
-                            console.log(error);
-                        });
+                    }, function (error) {
+                        console.log(error);
+                    });
                 }
             });
         }
@@ -78,7 +77,7 @@ var getCoinWarZ = function () {
 };
 
 var start = function () {
-    getCoinWarZ();
+    getAltcoin();
 };
 
-module.exports.Init = start;
+module.exports.init = start;
