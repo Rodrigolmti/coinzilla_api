@@ -8,6 +8,6 @@ module.exports = function (app) {
 	app.route('/api/v2/marketcap/coin/list')
 		.get(marketcap.findAllCoins);
 
-	app.route('/api/v2/marketcap/coin/:id')
+	app.route('/api/v2/marketcap/coin/detail/:id')
 		.get(marketcap.findCoinById);
 };

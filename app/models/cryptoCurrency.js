@@ -9,6 +9,14 @@ var schema = mongoose.Schema({
 		type: String,
 		required: true
 	},
+	name: {
+		type: String,
+		required: true
+	},
+	slug: {
+		type: String,
+		required: true
+	},
 	circulatingSupply: {
 		type: Number,
 		required: false

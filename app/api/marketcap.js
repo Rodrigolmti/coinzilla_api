@@ -7,7 +7,16 @@ module.exports = function (app) {
     var modelCrypto = mongoose.model('CryptoCurrency');
 
     api.findAllCoins = function (req, res) {
-        modelCrypto.find({}).then(function (data) {
+
+        var projection = {
+            "_id" : true,
+            "tag": true, 
+            "name" : true,
+            "quoteBrl.price" : true,
+            "quoteUsd.price" : true
+        }
+
+        modelCrypto.find({}, projection).then(function (data) {
             res.status(201).send({
                 success: true,
                 data: data

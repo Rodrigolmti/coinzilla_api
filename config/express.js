@@ -1,4 +1,3 @@
-var path = require('path');
 var morgan = require('morgan');
 var config = require('./config');
 var express = require('express');

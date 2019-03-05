@@ -17,11 +17,11 @@ var schema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	estResward: {
+	estReward: {
 		type: String,
 		required: true
 	},
-	estResward24: {
+	estReward24: {
 		type: String,
 		required: true
 	},

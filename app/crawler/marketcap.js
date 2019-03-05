@@ -38,6 +38,8 @@ function getListing() {
 
                             var cryptoCoin = {
                                 marketId: coinBrl.id,
+                                name : coinBrl.name,
+                                slug : coinBrl.slug,
                                 tag: coinBrl.symbol,
                                 circulatingSupply: coinBrl.circulating_supply,
                                 totalSupply: coinBrl.total_supply,

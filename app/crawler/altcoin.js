@@ -28,8 +28,8 @@ function getAltcoin() {
                 var marketSplit = cell.next().next().next().next().next().eq(0).text().split(" ");
 
                 var netHash = hashSplit[1];
-                var estResward = estSplit[0]
-                var estResward24 = estSplit[1];
+                var estReward = estSplit[0]
+                var estReward24 = estSplit[1];
                 var marketCap = marketSplit[1] + marketSplit[2];
                 var volume = marketSplit[4] + marketSplit[5];
 
@@ -41,8 +41,8 @@ function getAltcoin() {
                         algorithm: algorithm.trim(),
                         difficulty: difficulty.trim(),
                         netHash: netHash.trim(),
-                        estResward: estResward.trim(),
-                        estResward24: estResward24.trim(),
+                        estReward: estReward.trim(),
+                        estReward24: estReward24.trim(),
                         marketCap: marketCap.trim(),
                         volume: volume.trim(),
                         updateDate: new Date()
@@ -53,8 +53,8 @@ function getAltcoin() {
                         algorithm: algorithm.trim(),
                         difficulty: difficulty.trim(),
                         netHash: netHash.trim(),
-                        estResward: estResward.trim(),
-                        estResward24: estResward24.trim(),
+                        estReward: estReward.trim(),
+                        estReward24: estReward24.trim(),
                         marketCap: marketCap.trim(),
                         updateDate: new Date()
                     };

@@ -20,8 +20,8 @@ function getGpu() {
                         algorithm: coin.algorithm,
                         difficulty: coin.difficulty,
                         netHash: coin.nethash,
-                        estResward: coin.estimated_rewards,
-                        estResward24: coin.estimated_rewards24,
+                        estReward: coin.estimated_rewards,
+                        estReward24: coin.estimated_rewards24,
                         marketCap: coin.market_cap
                     }
                     modelGpu.create(gpu).then(function (item) { },
@@ -52,8 +52,8 @@ function getAsic() {
                         algorithm: coin.algorithm,
                         difficulty: coin.difficulty,
                         netHash: coin.nethash,
-                        estResward: coin.estimated_rewards,
-                        estResward24: coin.estimated_rewards24,
+                        estReward: coin.estimated_rewards,
+                        estReward24: coin.estimated_rewards24,
                         marketCap: coin.market_cap
                     }
                     modelAsic.create(asic).then(function (item) { },

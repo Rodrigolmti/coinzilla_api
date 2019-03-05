@@ -5,10 +5,12 @@ var marketcap = require('../crawler/marketcap.js');
 var altcoin = require('../crawler/altcoin.js');
 
 schedule.scheduleJob('*/15 * * * *', function () {
-    // wtm.init();
+    console.log("Initializing 15m job");
     // altcoin.init();
+    // wtm.init();
 })
 
-schedule.scheduleJob('*/1 * * * *', function () {
+schedule.scheduleJob('* * * 4 *', function () {
+    console.log("Initializing 4m job");
     // marketcap.init();
 })
