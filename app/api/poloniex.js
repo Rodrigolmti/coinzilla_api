@@ -6,33 +6,39 @@ module.exports = function (app) {
     var api = {};
 
     api.getAvailableAccountBalances = function (req, res) {
+
         if (req.body.key != null && req.body.secret != null) {
 
-            let poloniex = new Poloniex(req.body.key, req.body.secret, { socketTimeout: 15000 });
+            console.log(req.body.key);
+            console.log(req.body.secret);
+
+            let poloniex = new Poloniex(req.body.key, req.body.secret, { 
+                socketTimeout: 15000, nonce: () => new Date().time
+            });
 
             var response = {
                 success: '',
                 message: '',
-                data: {
-                    exchange: new Array(),
-                    margin: new Array(),
-                    lending: new Array()
-                }
+                data: new Array()
             }
 
             poloniex.returnAvailableAccountBalances('', function (err, balances) {
+                
+                console.log(balances);
+                console.log(err);
+                
                 if (!err) {
                     
                     if (balances.exchange != null) {
-                        response.data.exchange = createCoin(balances.exchange);
+                        response.data.exchange.push(createCoin(balances.exchange, "exchange"));
                     }
 
                     if (balances.margin != null) { 
-                        response.data.exchange = createCoin(balances.margin);
+                        response.data.exchange.push(createCoin(balances.margin, "margin"));
                     }
 
                     if (balances.lending != null) { 
-                        response.data.exchange = createCoin(balances.lending);
+                        response.data.exchange.push(createCoin(balances.lending, "lending"));
                     }
 
                     response.success = true;
@@ -42,7 +48,8 @@ module.exports = function (app) {
                      });
 
                 } else {
-                    response.success = false; response.message = error;
+                    response.success = false; 
+                    response.message = err;
                     res.status(400).send(response);
                 }
             });
@@ -54,25 +61,16 @@ module.exports = function (app) {
 
     return api;
 
-    function createCoin(json) {
+    function createCoin(json, type) {
         var list = [];
         for (var prop in json) {
             var coin = {
                 tag: prop,
-                quant: json[prop],
-                price: getCurrencyPrice(prop)
+                type: type,
+                balance: json[prop]
             }
             list.push(coin);
         }
         return list;
-    }
-
-    function getCurrencyPrice(coin) {
-        request('https://min-api.cryptocompare.com/data/price?fsym=' + coin + '&tsyms=BRL,USD', (error, response, body) => {
-            if (error) {
-                throw error;
-            }
-            return body;
-        });
-    }
+    };
 };

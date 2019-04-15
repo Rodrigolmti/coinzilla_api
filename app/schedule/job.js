@@ -6,11 +6,11 @@ var altcoin = require('../crawler/altcoin.js');
 
 schedule.scheduleJob('*/15 * * * *', function () {
     console.log("Initializing 15m job");
-    // altcoin.init();
-    // wtm.init();
+    altcoin.init();
+    wtm.init();
 })
 
 schedule.scheduleJob('* * * 4 *', function () {
     console.log("Initializing 4m job");
-    // marketcap.init();
+    marketcap.init();
 })
