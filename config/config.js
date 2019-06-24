@@ -1,5 +1,7 @@
+require('dotenv').config();
+
 module.exports = {
-	'secret': 'coinZilla$2017API',
-	'database': 'mongodb://localhost/coinZilla',
-	'apiKey' : '26c25d2a-6e7f-4799-8a6a-ae2ea6f52548'
+	'secret': process.env.APP_SECRET,
+	'database': process.env.DATABASE_URL,
+	'apiKey' : process.env.MARKETCAP_KEY
 };

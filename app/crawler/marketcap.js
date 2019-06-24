@@ -1,5 +1,6 @@
 var request = require('request');
 var mongoose = require('mongoose');
+var config = require('../../config/config');
 
 const urlMarketCap = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=";
 
@@ -12,7 +13,7 @@ function getListing() {
 
         request({
             headers: {
-                'X-CMC_PRO_API_KEY': '26c25d2a-6e7f-4799-8a6a-ae2ea6f52548',
+                'X-CMC_PRO_API_KEY': config.apiKey,
             }, uri: urlMarketCap + "BRL",
             method: 'GET'
         }, function (error, response, bodyBrl) {
@@ -21,7 +22,7 @@ function getListing() {
 
                 request({
                     headers: {
-                        'X-CMC_PRO_API_KEY': '26c25d2a-6e7f-4799-8a6a-ae2ea6f52548',
+                        'X-CMC_PRO_API_KEY': config.apiKey,
                     }, uri: urlMarketCap + "USD",
                     method: 'GET'
                 }, function (error, response, bodyUsd) {
