@@ -10,7 +10,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.13.3",
     "jsonwebtoken": "^7.3.0",
-    "mongoose": "^4.3.1",
+    "mongoose": "^5.7.5",
     "morgan": "^1.8.1",
     "node-schedule": "^1.2.3",
     "poloniex-api-node": "^1.8.1",
