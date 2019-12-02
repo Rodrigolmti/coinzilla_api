@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  server:
+    build: '.'
+    container_name: 'server'
+    restart: always
+    environment:
+      DATABASE_URL: ${COINZILLA_DATABASE_URL}
+      APP_SECRET: ${COINZILLA_APP_SECRET}
+      MARKETCAP_KEY: ${MARKETCAP_KEY}
+    volumes:
+      - /usr/src/app
+      - /usr/app/node_modules
+    depends_on:
+      - database
+    ports:
+      - '4000:4000'
+
+  database:
+    container_name: 'mongo'
+    volumes:
+      - ./data:/data/db
+    image: 'mongo'
+    ports:
+      - '27017:27017'
+    

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Web crawler and a simple api",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "nodemon --inspect server.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "cheerio": "^0.20.0",

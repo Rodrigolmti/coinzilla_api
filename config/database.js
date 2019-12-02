@@ -2,8 +2,11 @@ module.exports = function(uri) {
 
 	var mongoose = require('mongoose');
 
-	mongoose.connect(uri);
-
+	mongoose.connect(uri, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	});
+	
 	mongoose.connection.on('connected', function() {
 		console.log('Connected in MongoDB')
 	});
