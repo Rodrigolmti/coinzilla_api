@@ -15,7 +15,7 @@
     "express": "^4.13.3",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.3.1",
-    "morgan": "^1.8.1",
+    "morgan": "^1.9.1",
     "node-schedule": "^1.2.3",
     "poloniex-api-node": "^1.8.1",
     "request": "^2.69.0",
